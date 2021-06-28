@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     public void LoadMainMenuScene()
     {
-        SceneManager.LoadScene((int) Scenes.MainMenu);
+        SceneManager.LoadScene((int)Scenes.MainMenu);
     }
     public void LoadGameplayScene()
     {
