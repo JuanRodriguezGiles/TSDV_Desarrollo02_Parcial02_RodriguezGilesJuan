@@ -1384,8 +1384,8 @@ SpriteShapeRenderer:
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []
   m_LocalAABB:
-    m_Center: {x: 0.24481773, y: 1.596482, z: 0}
-    m_Extent: {x: 9.280857, y: 2.8285766, z: 0}
+    m_Center: {x: 0.23487282, y: -0.90168285, z: 0}
+    m_Extent: {x: 9.279121, y: 5.326741, z: 0}
 --- !u!4 &793303032
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -9.020819, y: -1.1826375, z: 0}
+    - position: {x: -9.044249, y: -6.220212, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -1550,7 +1550,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: 9.525674, y: -1.2320945, z: 0}
+    - position: {x: 9.513995, y: -1.1558483, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -1559,7 +1559,16 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: 0.98478055, y: -1.1674182, z: 0}
+    - position: {x: 9.502241, y: -6.199379, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+    - position: {x: 0.6567522, y: -6.228424, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -1599,7 +1608,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.020819, y: -1.1826375}
+  - {x: -9.044249, y: -6.220212}
   - {x: -9.036039, y: -0.24802136}
   - {x: -8.097725, y: 0.21253014}
   - {x: -6.3786974, y: -0.3496945}
@@ -1614,11 +1623,12 @@ EdgeCollider2D:
   - {x: 6.0467515, y: 1.6451848}
   - {x: 6.875432, y: 4.4250584}
   - {x: 7.949718, y: -0.14625621}
-  - {x: 9.525674, y: -1.2320945}
-  - {x: 0.98478055, y: -1.1674182}
-  - {x: -8.53462, y: -1.1818979}
-  - {x: -8.893339, y: -1.1824435}
-  - {x: -9.020819, y: -1.1826375}
+  - {x: 9.513995, y: -1.1558483}
+  - {x: 9.525673, y: -6.199379}
+  - {x: 0.6567522, y: -6.228424}
+  - {x: -8.572852, y: -6.2206106}
+  - {x: -8.9206505, y: -6.2203164}
+  - {x: -9.044249, y: -6.220212}
 --- !u!1 &806115132
 GameObject:
   m_ObjectHideFlags: 0
