@@ -12,4 +12,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         SceneManager.LoadScene((int) Scenes.MainMenu);
     }
+    public void LoadGameplayScene()
+    {
+        SceneManager.LoadScene((int)Scenes.GamePlay);
+    }
 }
