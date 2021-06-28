@@ -23,4 +23,8 @@ public class UiGameplay : MonoBehaviour
         xSpeed.text = "Horizontal Speed " + _stats.xSpeed;
         ySpeed.text = "Vertical Speed " + _stats.ySpeed;
     }
+    public void LoadMainMenuScene()
+    {
+        GameManager.Get().LoadMainMenuScene();
+    }
 }

@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (PauseControl.gameIsPaused) return;
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) && _stats.fuel > 0)
         {
             _rigidbody.AddRelativeForce(new Vector2(0, _thrustersStrenght));
