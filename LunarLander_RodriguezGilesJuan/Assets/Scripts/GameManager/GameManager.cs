@@ -1,4 +1,7 @@
-﻿using MonoBehaviourSingletonScript;
+﻿using System;
+using System.Collections.Generic;
+using MonoBehaviourSingletonScript;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 public enum Scenes
 {
@@ -16,4 +19,16 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         SceneManager.LoadScene((int)Scenes.GamePlay);
     }
+    #region EVENTS
+    public static event Action onPlayerLanded;
+    public static event Action onPlayerCrashed;
+    public void OnPlayerLanded()
+    {
+        onPlayerLanded?.Invoke();
+    }
+    public void OnPlayerCrashed()
+    {
+        onPlayerCrashed?.Invoke();
+    }
+    #endregion
 }
