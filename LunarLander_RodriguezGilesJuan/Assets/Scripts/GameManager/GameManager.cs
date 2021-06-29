@@ -20,15 +20,23 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         SceneManager.LoadScene((int)Scenes.GamePlay);
     }
     #region EVENTS
-    public static event Action onPlayerLanded;
+    public static event Action<int> onPlayerLanded;
     public static event Action onPlayerCrashed;
-    public void OnPlayerLanded()
+    public static event Action onLevelLoad;
+    public void OnPlayerLanded(int value)
     {
-        onPlayerLanded?.Invoke();
+        onPlayerLanded?.Invoke(value);
+        Time.timeScale = 0f;
     }
     public void OnPlayerCrashed()
     {
         onPlayerCrashed?.Invoke();
+        Time.timeScale = 0f;
+    }
+    public void OnLevelLoad()
+    {
+        onLevelLoad?.Invoke();
+        Time.timeScale = 1f;
     }
     #endregion
 }

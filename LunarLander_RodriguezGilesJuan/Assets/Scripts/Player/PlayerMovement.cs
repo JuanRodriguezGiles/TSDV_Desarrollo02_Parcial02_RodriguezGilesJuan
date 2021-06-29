@@ -6,11 +6,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _gravity;
     Rigidbody2D _rigidbody;
     PlayerStats _stats;
+    ParticleSystem _particleSystem;
+    void OnEnable()
+    {
+        GameManager.onLevelLoad += OnLevelLoad;
+    }
+    void OnDisable()
+    {
+        GameManager.onLevelLoad -= OnLevelLoad;
+    }
     void Start()
     {
         _stats = GetComponent<PlayerStats>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.gravityScale = _gravity;
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
+        _particleSystem.Stop();
     }
     void Update()
     {
@@ -19,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _rigidbody.AddRelativeForce(new Vector2(0, _thrustersStrenght));
             _stats.fuel -= 1;
+            _particleSystem.Play();
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             _rigidbody.rotation += _rotationSpeed;
@@ -27,5 +39,12 @@ public class PlayerMovement : MonoBehaviour
 
         _stats.xSpeed = _rigidbody.velocity.x;
         _stats.ySpeed = _rigidbody.velocity.y;
+    }
+    void OnLevelLoad()
+    {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+        _rigidbody.velocity = Vector2.zero;
+        _rigidbody.angularVelocity = 0;
     }
 }

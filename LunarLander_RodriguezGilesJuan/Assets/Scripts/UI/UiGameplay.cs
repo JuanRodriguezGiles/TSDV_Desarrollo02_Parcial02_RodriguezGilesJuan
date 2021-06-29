@@ -10,9 +10,18 @@ public class UiGameplay : MonoBehaviour
     public TMP_Text altitude;
     public TMP_Text xSpeed;
     public TMP_Text ySpeed;
+    LandingMenu _landingMenu;
+    void OnEnable()
+    {
+        GameManager.onPlayerLanded += OnPlayerLanded;
+        GameManager.onPlayerCrashed += OnPlayerCrashed;
+    }
     void Start()
     {
         _stats = FindObjectOfType<PlayerStats>();
+        _landingMenu = FindObjectOfType<LandingMenu>();
+        _landingMenu.gameObject.SetActive(false);
+        score.text = _stats.score.ToString();
     }
     void Update()
     {
@@ -26,5 +35,18 @@ public class UiGameplay : MonoBehaviour
     public void LoadMainMenuScene()
     {
         GameManager.Get().LoadMainMenuScene();
+    }
+    public void OnPlayerLanded(int value)
+    {
+        _landingMenu.gameObject.SetActive(true);
+        _landingMenu.NextLevelButton.gameObject.SetActive(true);
+        _landingMenu.resultText.text = "Succesful Landing!";
+        score.text = _stats.score.ToString();
+    }
+    public void OnPlayerCrashed()
+    {
+        _landingMenu.gameObject.SetActive(true);
+        _landingMenu.NextLevelButton.gameObject.SetActive(false);
+        _landingMenu.resultText.text = "Crashed!";
     }
 }

@@ -15,5 +15,6 @@ public class Levels : MonoBehaviour
         else
             _activeLevel = 0;
         levels[_activeLevel].SetActive(true);
+        GameManager.Get().OnLevelLoad();
     }
 }
