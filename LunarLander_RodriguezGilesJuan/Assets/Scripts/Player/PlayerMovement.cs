@@ -30,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _rigidbody.AddRelativeForce(new Vector2(0, _thrustersStrenght));
             _stats.fuel -= 0.1f;
-            _particleSystem.Play();
+            if (!_particleSystem.IsAlive())
+                _particleSystem.Play();
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             _rigidbody.rotation += _rotationSpeed;
