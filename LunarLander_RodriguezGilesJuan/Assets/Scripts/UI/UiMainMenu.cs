@@ -5,4 +5,8 @@ public class UiMainMenu : MonoBehaviour
     {
         GameManager.Get().LoadGameplayScene();
     }
+    public void ExitGame()
+    {
+        GameManager.Get().ExitGame();
+    }
 }
