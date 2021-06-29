@@ -21,27 +21,31 @@ public class UiGameplay : MonoBehaviour
         _stats = FindObjectOfType<PlayerStats>();
         _landingMenu = FindObjectOfType<LandingMenu>();
         _landingMenu.gameObject.SetActive(false);
-        score.text = _stats.score.ToString();
+        score.text = "Score " + _stats.score.ToString();
     }
     void Update()
     {
         _time += Time.deltaTime;
         time.text = "Time " + Mathf.Round(_time);
-        fuel.text = "Fuel " + _stats.fuel;
+        fuel.text = "Fuel " + Mathf.Round(_stats.fuel);
         altitude.text = "Altitude " + _stats.altitude;
-        xSpeed.text = "Horizontal Speed " + _stats.xSpeed;
-        ySpeed.text = "Vertical Speed " + _stats.ySpeed;
+        xSpeed.text = "Horizontal Speed " + Mathf.Round(Mathf.Abs(_stats.xSpeed) * 10);
+        ySpeed.text = "Vertical Speed " + Mathf.Round(Mathf.Abs(_stats.ySpeed) * 10);
     }
     public void LoadMainMenuScene()
     {
         GameManager.Get().LoadMainMenuScene();
+    }
+    public void ExitGame()
+    {
+        GameManager.Get().ExitGame();
     }
     public void OnPlayerLanded(int value)
     {
         _landingMenu.gameObject.SetActive(true);
         _landingMenu.NextLevelButton.gameObject.SetActive(true);
         _landingMenu.resultText.text = "Succesful Landing!";
-        score.text = _stats.score.ToString();
+        score.text = "Score " + _stats.score.ToString();
     }
     public void OnPlayerCrashed()
     {

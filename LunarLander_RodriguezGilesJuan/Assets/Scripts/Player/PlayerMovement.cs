@@ -26,10 +26,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (PauseControl.gameIsPaused) return;
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) && _stats.fuel > 0)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && _stats.fuel > 0)
         {
             _rigidbody.AddRelativeForce(new Vector2(0, _thrustersStrenght));
-            _stats.fuel -= 1;
+            _stats.fuel -= 0.1f;
             _particleSystem.Play();
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         _stats.xSpeed = _rigidbody.velocity.x;
         _stats.ySpeed = _rigidbody.velocity.y;
+        _stats.altitude = (int)transform.position.y * 10;
     }
     void OnLevelLoad()
     {

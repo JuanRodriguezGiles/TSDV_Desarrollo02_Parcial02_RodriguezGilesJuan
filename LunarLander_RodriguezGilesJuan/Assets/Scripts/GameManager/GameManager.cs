@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         SceneManager.LoadScene((int)Scenes.GamePlay);
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     #region EVENTS
     public static event Action<int> onPlayerLanded;
     public static event Action onPlayerCrashed;

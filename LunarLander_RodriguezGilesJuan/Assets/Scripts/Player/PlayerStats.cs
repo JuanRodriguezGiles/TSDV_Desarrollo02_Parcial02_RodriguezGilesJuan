@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
-    public int score;
-    public int fuel;
-    public int altitude;
-    public float xSpeed;
-    public float ySpeed;
-    int _startFuel;
+    [HideInInspector] public int score;
+    public float fuel;
+    [HideInInspector] public int altitude;
+    [HideInInspector] public float xSpeed;
+    [HideInInspector] public float ySpeed;
+    float _startFuel;
     void OnEnable()
     {
         GameManager.onPlayerLanded += AddScore;
