@@ -1179,6 +1179,7 @@ GameObject:
   - component: {fileID: 290544710}
   - component: {fileID: 290544709}
   - component: {fileID: 290544708}
+  - component: {fileID: 290544711}
   m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
@@ -1466,6 +1467,18 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0.5596466, y: -1.8613963, z: 0}
     m_Extent: {x: 10.096596, y: 4.48029, z: 0}
+--- !u!114 &290544711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290544706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d28d651fecca1d4b9f71e54bcaa846b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &318105170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3671,7 @@ GameObject:
   - component: {fileID: 560146041}
   - component: {fileID: 560146040}
   - component: {fileID: 560146039}
+  - component: {fileID: 560146042}
   m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
@@ -3696,7 +3710,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -9.530144, y: -6.1291065}
-  - {x: -9.50658, y: -1.485115}
+  - {x: -9.445844, y: -1.485115}
   - {x: -7.609889, y: -1.7009814}
   - {x: -6.5759263, y: -2.6818202}
   - {x: -5.675041, y: -2.6745594}
@@ -3965,7 +3979,7 @@ SpriteShapeRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560146037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
@@ -4005,6 +4019,18 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0.4578743, y: -2.3265057, z: 0}
     m_Extent: {x: 9.988018, y: 3.9019184, z: 0}
+--- !u!114 &560146042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560146037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d28d651fecca1d4b9f71e54bcaa846b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &561123019
 GameObject:
   m_ObjectHideFlags: 0
@@ -4610,7 +4636,7 @@ SpriteShapeRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793303030}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
@@ -5659,7 +5685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1066648714
 Transform:
   m_ObjectHideFlags: 0
@@ -11322,7 +11348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1555646597
 Transform:
   m_ObjectHideFlags: 0
