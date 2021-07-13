@@ -1,13 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 public class Terrain : MonoBehaviour
 {
+    public static event Action onTerrainCrash;
     void OnCollisionEnter2D(Collision2D collision)
     {
-        float angle = collision.transform.rotation.eulerAngles.z;
-
-        if (!(angle > 350f || angle < 10f))
-        {
-            GameManager.Get().OnPlayerCrashed();
-        }
+        onTerrainCrash?.Invoke();
     }
 }

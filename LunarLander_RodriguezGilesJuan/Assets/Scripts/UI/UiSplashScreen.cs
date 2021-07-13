@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class SplashScreen :MonoBehaviour
+public class UiSplashScreen :MonoBehaviour
 {
     public void LoadMainMenuScene()
     {

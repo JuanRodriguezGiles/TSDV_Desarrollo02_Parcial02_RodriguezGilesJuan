@@ -10,17 +10,18 @@ public class UiGameplay : MonoBehaviour
     public TMP_Text altitude;
     public TMP_Text xSpeed;
     public TMP_Text ySpeed;
-    LandingMenu _landingMenu;
+    UiLandingMenu _uiLandingMenu;
     void OnEnable()
     {
-        GameManager.onPlayerLanded += OnPlayerLanded;
-        GameManager.onPlayerCrashed += OnPlayerCrashed;
+        Platform.onPlatformLand += OnPlayerLanded;
+        Platform.onPlatformCrash += OnPlayerCrashed;
+        Terrain.onTerrainCrash += OnPlayerCrashed;
     }
     void Start()
     {
         _stats = FindObjectOfType<PlayerStats>();
-        _landingMenu = FindObjectOfType<LandingMenu>();
-        _landingMenu.gameObject.SetActive(false);
+        _uiLandingMenu = FindObjectOfType<UiLandingMenu>();
+        _uiLandingMenu.gameObject.SetActive(false);
         score.text = "Score " + _stats.score.ToString();
     }
     void Update()
@@ -28,8 +29,8 @@ public class UiGameplay : MonoBehaviour
         _time += Time.deltaTime;
         time.text = "Time " + Mathf.Round(_time);
         fuel.text = "Fuel " + Mathf.Round(_stats.fuel);
-        altitude.text = "Altitude " + _stats.altitude;
-        xSpeed.text = "Horizontal Speed " + Mathf.Round(Mathf.Abs(_stats.xSpeed) * 10);
+        altitude.text = "Altitude " + _stats.altitude.ToString("0.00");
+        xSpeed.text = "Horizontal Speed " + Mathf.Round(_stats.xSpeed * 10);
         ySpeed.text = "Vertical Speed " + Mathf.Round(Mathf.Abs(_stats.ySpeed) * 10);
     }
     public void LoadMainMenuScene()
@@ -40,17 +41,25 @@ public class UiGameplay : MonoBehaviour
     {
         GameManager.Get().ExitGame();
     }
-    public void OnPlayerLanded(int value)
+    void OnPlayerLanded(int value)
     {
-        _landingMenu.gameObject.SetActive(true);
-        _landingMenu.NextLevelButton.gameObject.SetActive(true);
-        _landingMenu.resultText.text = "Succesful Landing!";
+        _uiLandingMenu.gameObject.SetActive(true);
+        _uiLandingMenu.NextLevelButton.gameObject.SetActive(true);
+        _uiLandingMenu.resultText.text = "Succesful Landing!";
         score.text = "Score " + _stats.score.ToString();
     }
-    public void OnPlayerCrashed()
+    void OnPlayerCrashed()
     {
-        _landingMenu.gameObject.SetActive(true);
-        _landingMenu.NextLevelButton.gameObject.SetActive(false);
-        _landingMenu.resultText.text = "Crashed!";
+        _uiLandingMenu.gameObject.SetActive(true);
+        _uiLandingMenu.NextLevelButton.gameObject.SetActive(false);
+        _uiLandingMenu.resultText.text = "Crashed!";
+        foreach (var VARIABLE in _uiLandingMenu.scores)
+        {
+            VARIABLE.text = "";
+        }
+        for (int i = 0; i < HighScoreManager.Get()._highScores.Count; i++)
+        {
+            _uiLandingMenu.scores[i].text = HighScoreManager.Get()._highScores[i].ToString();
+        }
     }
 }

@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -950,6 +950,8 @@ PlayableDirector:
     value: {fileID: 681769966}
   - key: {fileID: 7960354962934524853, guid: f44b45d85eb39964cb149f071215c249, type: 2}
     value: {fileID: 1909123721}
+  - key: {fileID: 1033731399119885351, guid: f44b45d85eb39964cb149f071215c249, type: 2}
+    value: {fileID: 1414452206}
   m_ExposedReferences:
     m_References:
     - 62a2c4ef6d4214344aee8b1d684e4815: {fileID: 681769962}

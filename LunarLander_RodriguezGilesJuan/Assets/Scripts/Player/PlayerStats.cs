@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
-    [HideInInspector] public int score;
     public float fuel;
-    [HideInInspector] public int altitude;
+    [HideInInspector] public int score;
+    [HideInInspector] public float altitude;
     [HideInInspector] public float xSpeed;
     [HideInInspector] public float ySpeed;
     float _startFuel;
     void OnEnable()
     {
-        GameManager.onPlayerLanded += AddScore;
-        GameManager.onLevelLoad += ResetStats;
+        Platform.onPlatformLand += AddScore;
+        Levels.onLevelLoad += ResetStats;
     }
     void OnDisable()
     {
-        GameManager.onPlayerLanded -= AddScore;
-        GameManager.onLevelLoad -= ResetStats;
+        Platform.onPlatformLand -= AddScore;
+        Levels.onLevelLoad -= ResetStats;
     }
     void Start()
     {
